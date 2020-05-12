@@ -1,0 +1,223 @@
+/* ---- Base Rules ---- */
+
+body {
+    background: white;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    color: #303030;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+
+/* --- Typeography General --- */
+
+h1 {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 48px;
+    margin: 2em 1rem;
+}
+
+@media only screen and (min-width: 35em){
+    h1 {
+        font-size: 7em;
+        margin: 2em 4rem 1em;
+    }
+}
+
+h2 {
+    border-bottom: 1px solid #AAAAAA;
+    font-family: 'Open sans', Sans-Serif;
+    font-size: 3em;
+    color: #4E4E4E;
+    font-weight: lighter;
+}
+
+p {
+    line-height: 1.6em;
+}
+
+/* ---- Layout Rules ---- */
+
+main {
+    margin: 10vh 1em 10vh;
+}
+
+.main-hero {
+    min-height: 40vh;
+    padding-top: 3em;
+}
+
+section {
+    position: relative;
+    min-height: 80vh;
+}
+
+figcaption {
+  color: white;
+  font-size: 12px;
+}
+
+
+/* ---- Module Rules ---- */
+
+/* Navigation Styles*/
+.navbar__menu ul {
+    padding-left: 0;
+    margin: 0;
+    margin-right: 15px;
+    text-align: right;
+}
+
+.navbar__menu li {
+    display: inline-block;
+}
+
+.navbar__menu .menu__link {
+    padding: 20px;
+    font-weight: bold;
+    color: #C7C7C7;
+}
+
+.navbar__menu .menu__link:hover {
+    border-bottom: 1px solid #E1E1E1;
+    color: white;
+    transition: ease 1s all;
+}
+
+.nav_item {
+  padding: 20px;
+  text-decoration: none;
+}
+
+/* Header Styles */
+.page__header {
+    background: #fff;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 5;
+}
+
+/* Footer Styles */
+.page__footer {
+    background: #000;
+    padding: 3em;
+    color: #fff;
+
+}
+
+.page__footer p{
+    color: #fff;
+}
+
+
+/* ---- Theme Rules ---- */
+/* Landing Container Styles */
+.landing__container {
+    padding: 1em;
+    text-align: left;
+}
+
+.image_box {
+  height: auto;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*padding-top: 2%;*/
+}
+
+.liquid_image {
+  background-image: url(https://s3-eu-west-1.amazonaws.com/hos-static-shop/image/3464/large);
+  background-size: cover;
+  width: 90%;
+  height: 55vh;
+}
+
+.ambient_image {
+  background-image: url(https://images.unsplash.com/photo-1464457312035-3d7d0e0c058e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80);
+  background-size: cover;
+  width: 90%;
+  height: 55vh;
+}
+
+.techno_image {
+  background-image: url(https://images.unsplash.com/photo-1470019693664-1d202d2c0907?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80);
+  background-size: cover;
+  width: 90%;
+  height: 55vh;
+}
+
+.dub_fusion_image {
+  background-image: url(https://i1.sndcdn.com/avatars-000433736751-pfxfjb-t500x500.jpg);
+  background-image: cover;
+  width: 90%;
+  height: 55vh;
+}
+
+
+
+@media only screen and (min-width: 35em){
+    .landing__container {
+        max-width: 50em;
+        padding: 4em;
+    }
+}
+
+
+/* Background Circles */
+/* Note that background circles are created with psuedo elements before and after */
+/* Circles appear to be random do to use of :nth-of-type psuedo class */
+section {
+  display: flex;
+}
+
+section:nth-of-type(odd) .landing__container::before {
+    content: '';
+    background: rgba(255, 255, 255, 0.127);
+    position: absolute;
+    z-index: -5;
+    width: 20vh;
+    height: 20vh;
+    border-radius: 50%;
+    opacity: 0;
+    transition: ease 0.5s all;
+}
+
+section:nth-of-type(even) .landing__container::before {
+    content: '';
+    background: rgb(255,255,255);
+    /*background: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%);*/
+    position: absolute;
+    top: 3em;
+    right: 3em;
+    z-index: -5;
+    width: 10vh;
+    height: 10vh;
+    border-radius: 50%;
+    opacity: 0;
+    transition: ease 0.5s all;
+
+}
+
+/* ---- Theme State Rules ---- */
+/* Section Active Styles */
+/* Note: your-active-class class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
+section.your-active-class {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+section.your-active-class .landing__container::before {
+    opacity: 1;
+    animation: rotate 4s linear 0s infinite forwards;
+}
+
+section.your-active-class .landing__container::after {
+    opacity: 1;
+    animation: rotate 5s linear 0s infinite forwards reverse;
+}

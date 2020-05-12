@@ -1,88 +1,69 @@
-
-// -----------Navbar----------- //
+//! -------- Navbar-------- //
 
 function displayNav() {
 
-  const sections = ["LiquidDnB", "Ambient", "Melodic", "Dub_Fusion"];
+  const navlinks = ["LiquidDnB", "Ambient", "Melodic", "Dub Fusion"];
 
   const ul = document.querySelector('ul')
 
-  for (let section of sections) {
+  for (let navlink of navlinks) {
     let li = document.createElement("li");
-    li.innerHTML += `<a href="#${section}">${section}</a>`;
-    li.className = "menu__link"
+    li.innerHTML += `<a href="#${navlink}">${navlink}</a>`;
+    li.className = "navlink";
     ul.appendChild(li);
   }
 }
 
 displayNav();
 
-// -----------Content----------- //
+//! -------- Content-------- //
 
 function displayContent() {
 
-  const sectionNames = ["Liquid Projects", "Ambient Projects", "Melodic Projects", "Dub Fusion Projects"];
+  const sections = ["LiquidDnB", "Ambient", "Melodic", "Dub Fusion"];
 
-  const section = document.querySelector('section');
+  const all_sections = document.querySelector('.sections')
 
-  for(let sectionName of sectionNames) {
+  for (let section of sections) {
+
+    // Section Container //
+    let section_div = document.createElement("div");
+    section_div.className = "section";
+    all_sections.appendChild(section_div);
+
+
+    // Text Container //
+    let text_div = document.createElement("div");
+    text_div.className = "text-container";
+    section_div.appendChild(text_div);
+
+    // Section Title //
+    let h2 = document.createElement("h2");
+    h2.innerHTML += `${section} Projects`;
+    h2.className = "content-title";
+    text_div.appendChild(h2);
+
+    // Section Paragraph //
+    let p = document.createElement("p");
+    p.innerHTML += "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio quae, dicta. Sequi minima possimus quidem, distinctio molestias ut fuga et a facilis rem, consequatur! Obcaecati, error maxime facere tempora distinctio.";
+    p.className = "content-text";
+    text_div.appendChild(p);
+
+
+    // Image Container
+    let image_container = document.createElement("div");
+    image_container.className = "image_container"
+    section_div.appendChild(image_container)
   }
 }
 
-
-/**
-
- *
- * Manipulating the DOM exercise.
- * Exercise programmatically builds navigation,
- * scrolls to anchors from navigation,
- * and highlights section in viewport upon scrolling.
- *
- * Dependencies: None
- *
- * JS Version: ES2015/ES6
- *
- * JS Standard: ESlint
- *
-*/
-
-/**
- * Define Global Variables
- *
-*/
-
-
-/**
- * End Global Variables
- * Start Helper Functions
- *
-*/
+displayContent();
 
 
 
-/**
- * End Helper Functions
- * Begin Main Functions
- *
-*/
+    // const title = document.querySelector('.content-title');
 
-// build the nav
-
-
-// Add class 'active' to section when near top of viewport
-
-
-// Scroll to anchor ID using scrollTO event
-
-
-/**
- * End Main Functions
- * Begin Events
- *
-*/
-
-// Build menu
-
-// Scroll to section on link click
-
-// Set sections as active
+    // let p = document.createElement("p");
+    // p.innerHTML += "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio quae, dicta. Sequi minima possimus quidem, distinctio molestias ut fuga et a facilis rem, consequatur! Obcaecati, error maxime facere tempora distinctio.";
+    // p.className = "content-text";
+    // title.appendChild(p);
