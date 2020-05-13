@@ -1,22 +1,38 @@
 //! -------- Navbar-------- //
 
+
 function displayNav() {
 
   const navlinks = ["LiquidDnB", "Ambient", "Melodic", "Dub"];
 
   const ul = document.querySelector('ul');
 
+  let logo_div = document.createElement("div");
+  logo_div.className = "logo_div"
+  ul.appendChild(logo_div);
+
+  let li = document.createElement("li");
+  li.innerHTML += "NOX"
+  li.className = "logo"
+  logo_div.appendChild(li);
+
+  let nav_div = document.createElement("div");
+  nav_div.className = "nav_div"
+  ul.appendChild(nav_div);
+
   for (let navlink of navlinks) {
     let li = document.createElement("li");
     li.innerHTML += `<a href="#${navlink}">${navlink}</a>`;
     li.className = "navlink";
-    ul.appendChild(li);
+    nav_div.appendChild(li);
   }
 }
 
 displayNav();
 
+
 //! -------- Content-------- //
+
 
 function displayContent() {
 
@@ -55,6 +71,11 @@ function displayContent() {
     para.className = "content-text-two";
     text_div.appendChild(para);
 
+    let up = document.createElement("a")
+    up.href = "#top"
+    up.className = "fas fa-angle-up fa-2x"
+    text_div.appendChild(up);
+
 
     // Image Container
     let image_container = document.createElement("div");
@@ -74,7 +95,26 @@ function displayContent() {
 displayContent();
 
 
+//! -------- Smooth Scroll -------- //
+
+
+function smoothScroll () {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+      });
+    });
+  });
+}
+
+smoothScroll();
+
+
 //! -------- Content Ordering-------- //
+
 
 function switchOrder() {
 
@@ -84,27 +124,23 @@ function switchOrder() {
     if (s.id === "LiquidDnB" || s.id === "Melodic")  {
       s.appendChild(s.firstElementChild);
       s.lastElementChild.firstElementChild.style.textAlign = "right";
+    } else if (s.id === "Ambient" || s.id === "Dub") {
+      s.firstElementChild.lastElementChild.classList.add("to-top-right")
     }
   }
 }
 
 switchOrder();
 
+
 //! -------- Footer-------- //
+
 
 function displayFooter () {
 
   const footer = document.querySelector("footer");
-  footer.innerHTML = "&copy Nox Ltd";
+  footer.innerHTML = "&copy Nox Production Ltd.";
 }
 
 displayFooter();
 
-
-
-    // const title = document.querySelector('.content-title');
-
-    // let p = document.createElement("p");
-    // p.innerHTML += "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio quae, dicta. Sequi minima possimus quidem, distinctio molestias ut fuga et a facilis rem, consequatur! Obcaecati, error maxime facere tempora distinctio.";
-    // p.className = "content-text";
-    // title.appendChild(p);
