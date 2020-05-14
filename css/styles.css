@@ -170,7 +170,7 @@ section {
 }
 
 .LiquidDnB_image {
-  background-image: url(https://images.unsplash.com/photo-1426840963626-ffdf2d7ef80b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60);
+  background-image: url(https://s3-eu-west-1.amazonaws.com/hos-static-shop/image/3464/large);
   background-size: cover;
   width: 80%;
   height: 60vh;
@@ -186,7 +186,7 @@ section {
 }
 
 .Melodic_image {
-  background-image: url(https://images.unsplash.com/photo-1545331567-f17305b1ea64?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60);
+  background-image: url(https://images.unsplash.com/photo-1470019693664-1d202d2c0907?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80);
   background-size: cover;
   width: 80%;
   height: 55vh;
@@ -208,6 +208,8 @@ section {
   padding: 3em;
   color: #fff;
 }
+
+
 
 
 
