@@ -60,9 +60,9 @@ section {
   grid-area: nav;
   display: flex;
   justify-content: space-between;
-  padding: 15px;
-  padding-right: 25px;
   border-bottom: 1px solid #F2F2F2;
+  margin: 0px 5%;
+  padding: 2% 0px;
 }
 
 .nav_div {
@@ -73,7 +73,6 @@ section {
 .logo_div {
   display: flex;
   align-items: center;
-  padding-left: 20px;
 }
 
 .logo {
@@ -102,7 +101,7 @@ section {
   grid-area: header;
   display:flex;
   background: rgb(0, 0, 0);
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0) 100%);
 }
 
 .header-text {
@@ -114,7 +113,6 @@ section {
 .browse-link {
   border: 1px solid grey;
   padding: 12px 15px;
-  font-size: 14px;
   border-radius: 7px;
   opacity: 0.6;
   position: absolute;
@@ -149,7 +147,7 @@ section {
   padding: 3%;
   padding-bottom: 3%;
   background: rgb(0, 0, 0);
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0) 100%);
 }
 
 .text-container {
@@ -219,8 +217,8 @@ section {
   }
 
   h1 {
-  font-size: 60px;
-}
+    font-size: 60px;
+  }
 
    .main-container {
     grid-template-rows: auto 100vh 1fr 10vh;
@@ -249,7 +247,7 @@ section {
 
   .header-image-container {
     height: auto;
-    width: 80%;
+    width: 100%;
     margin-top: 5%;
     margin-bottom: 5%;
   }
@@ -258,6 +256,7 @@ section {
     height: 40vh;
     width: 80%;
     margin: 0;
+    margin-top: 10%;
   }
 
 
@@ -266,19 +265,19 @@ section {
   }
 
   .LiquidDnB_image {
-    height: 50vh;
+    height: 40vh;
   }
 
   .Ambient_image {
-    height: 50vh;
+    height: 40vh;
   }
 
   .Melodic_image {
-    height: 50vh;
+    height: 40vh;
   }
 
   .Dub_image {
-    height: 50vh;
+    height: 40vh;
   }
 
   .content-title {
@@ -303,6 +302,12 @@ section {
 }
 
 @media(max-width: 700px){
+
+ .main-container {
+    grid-template-rows: 8vh 0.2fr 1fr 10vh;
+    grid-template-columns: 100vw;
+  }
+
   body {
     font-size: 3vw;
   }
@@ -317,6 +322,15 @@ section {
 
   p {
     font-size: 12px;
+  }
+
+  .navbar-list {
+    padding: 2% 0px;
+    border: none;
+  }
+
+  .navlink {
+    padding: 10px;
   }
 
   .logo_div {
@@ -368,6 +382,10 @@ section {
 
   .text-container {
     width: 90%  ;
+  }
+
+  .header-text {
+    width: 80%;
   }
 }
 
