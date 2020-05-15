@@ -261,7 +261,7 @@ section {
 
 
   .image_container {
-    width: 80%;
+    width: 100%;
   }
 
   .LiquidDnB_image {
@@ -346,13 +346,13 @@ section {
   }
 
   .header-image {
-    height: 30vh;
+    height: 40vh;
     width: 300px;
     margin-top: 10%;
   }
 
   .LiquidDnB_image {
-    height: 30vh;
+    height: 40vh;
     width: 100%;
     margin: 0;
     margin-top: 10%;
@@ -360,21 +360,21 @@ section {
   }
 
   .Ambient_image {
-    height: 30vh;
+    height: 40vh;
     width: 100%;
     margin: 0;
     margin-top: 10%;
   }
 
   .Melodic_image {
-    height: 30vh;
+    height: 40vh;
     width: 100%;
     margin: 0;
     margin-top: 10%;
   }
 
   .Dub_image {
-    height: 30vh;
+    height: 40vh;
     width: 100%;
     margin: 0;
     margin-top: 10%;
