@@ -146,8 +146,11 @@ section {
   align-items: center;
   padding: 3%;
   padding-bottom: 3%;
+}
+
+.your-active-class {
   background: rgb(0, 0, 0);
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0) 100%);
 }
 
 .text-container {

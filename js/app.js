@@ -1,7 +1,6 @@
 //! -------- Global Variables -------- //
 
 const sections = ["LiquidDnB", "Ambient", "Melodic", "Dub"]
-const header = document.getElementsByClassName("nox-header")
 
 //! -------- Navbar-------- //
 
@@ -48,7 +47,6 @@ function displayContent() {
     // Section Container //
     let section_div = document.createElement("div");
     section_div.className = "section";
-     section_div.className += " your-active-class"
     section_div.id = `${section}`
     all_sections.appendChild(section_div);
 
@@ -150,16 +148,37 @@ function displayFooter () {
 
 displayFooter();
 
-//! -------- Check if in ViewPort -------- //
 
+//! -------- Check if section is out of ViewPort -------- //
 
+function isOutOfViewport (elem) {
 
+  // Get element's bounding
+  const bounding = elem.getBoundingClientRect();
 
-//! -------- Scroll Function -------- //
+  // Check if it's out of the viewport on each side
+  const out = {};
+  out.top = bounding.top < 0;
+  out.bottom = bounding.bottom > 0;
+  out.all = out.top && out.bottom;
+  return out;
 
-function focusOnScroll() {
-    console.log("hello")
+};
+
+//! -------- Add Active Class if in Viewport -------- //
+
+const each_sections = document.querySelectorAll('.section');
+
+function logViewport () {
+  for (let each_section of each_sections) {
+    const isOut = isOutOfViewport(each_section);
+    if (isOut.all) {
+      each_section.classList.add("your-active-class")
+    } else {
+      each_section.classList.remove("your-active-class")
+    }
+  };
 }
 
-window.onscroll = focusOnScroll;
-
+logViewport();
+window.addEventListener('scroll', logViewport, false);
