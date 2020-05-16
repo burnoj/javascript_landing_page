@@ -1,9 +1,13 @@
-//! -------- Navbar-------- //
+//! -------- Global Variables -------- //
 
+const sections = ["LiquidDnB", "Ambient", "Melodic", "Dub"]
+const header = document.getElementsByClassName("nox-header")
+
+//! -------- Navbar-------- //
 
 function displayNav() {
 
-  const navlinks = ["LiquidDnB", "Ambient", "Melodic", "Dub"];
+const navlinks = ["LiquidDnB", "Ambient", "Melodic", "Dub"];
 
   const ul = document.querySelector('ul');
 
@@ -33,10 +37,9 @@ displayNav();
 
 //! -------- Content-------- //
 
+// Populating all content via JS. THe four sections are: "LiquidDnB", "Ambient", "Melodic" and "Dub".
 
 function displayContent() {
-
-  const sections = ["LiquidDnB", "Ambient", "Melodic", "Dub"];
 
   const all_sections = document.querySelector('.sections');
 
@@ -45,6 +48,7 @@ function displayContent() {
     // Section Container //
     let section_div = document.createElement("div");
     section_div.className = "section";
+     section_div.className += " your-active-class"
     section_div.id = `${section}`
     all_sections.appendChild(section_div);
 
@@ -94,6 +98,28 @@ function displayContent() {
 
 displayContent();
 
+//! -------- -------- //
+
+
+
+//! -------- Content Ordering (photo/text)-------- //
+
+
+function switchOrder() {
+
+  for (let section of sections) {
+    s = document.getElementById(`${section}`)
+    if (s.id === "LiquidDnB" || s.id === "Melodic")  {
+      s.appendChild(s.firstElementChild);
+      s.lastElementChild.firstElementChild.style.textAlign = "right";
+    } else if (s.id === "Ambient" || s.id === "Dub") {
+      s.firstElementChild.lastElementChild.classList.add("to-top-right")
+    }
+  }
+}
+
+switchOrder();
+
 
 //! -------- Smooth Scroll -------- //
 
@@ -113,26 +139,6 @@ function smoothScroll () {
 smoothScroll();
 
 
-//! -------- Content Ordering-------- //
-
-
-function switchOrder() {
-
-  const sections = ["LiquidDnB", "Ambient", "Melodic", "Dub"];
-  for (let section of sections) {
-    s = document.getElementById(`${section}`)
-    if (s.id === "LiquidDnB" || s.id === "Melodic")  {
-      s.appendChild(s.firstElementChild);
-      s.lastElementChild.firstElementChild.style.textAlign = "right";
-    } else if (s.id === "Ambient" || s.id === "Dub") {
-      s.firstElementChild.lastElementChild.classList.add("to-top-right")
-    }
-  }
-}
-
-switchOrder();
-
-
 //! -------- Footer-------- //
 
 
@@ -143,4 +149,17 @@ function displayFooter () {
 }
 
 displayFooter();
+
+//! -------- Check if in ViewPort -------- //
+
+
+
+
+//! -------- Scroll Function -------- //
+
+function focusOnScroll() {
+    console.log("hello")
+}
+
+window.onscroll = focusOnScroll;
 
