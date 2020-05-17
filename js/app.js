@@ -96,10 +96,6 @@ function displayContent() {
 
 displayContent();
 
-//! -------- -------- //
-
-
-
 //! -------- Content Ordering (photo/text)-------- //
 
 
