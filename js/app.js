@@ -26,6 +26,7 @@ const navlinks = ["LiquidDnB", "Ambient", "Melodic", "Dub"];
   for (let navlink of navlinks) {
     let li = document.createElement("li");
     li.innerHTML += `<a href="#${navlink}">${navlink}</a>`;
+    li.id = `nav-${navlink}`;
     li.className = "navlink";
     nav_div.appendChild(li);
   }
@@ -42,47 +43,54 @@ function displayContent() {
 
   const all_sections = document.querySelector('.sections');
 
+  // function generateElements(tagName, elemClass, targetToAppend){
+  //   let newElem = document.createElement(tagName);
+  //   newElem.className = elemClass;
+  //   targetToAppend.appendChild(newElem);
+  // }
+  // generateElements("div", "text-container", section_div );
+
   for (let section of sections) {
 
     // Section Container //
-    let section_div = document.createElement("div");
-    section_div.className = "section";
-    section_div.id = `${section}`
-    all_sections.appendChild(section_div);
+    let sectionDiv = document.createElement("div");
+    sectionDiv.className = "section";
+    sectionDiv.id = `${section}`
+    all_sections.appendChild(sectionDiv);
 
 
     // Text Container //
-    let text_div = document.createElement("div");
-    text_div.className = "text-container";
-    section_div.appendChild(text_div);
+    let textDiv = document.createElement("div");
+    textDiv.className = "text-container";
+    sectionDiv.appendChild(textDiv);
 
     // Section Title //
     let h2 = document.createElement("h2");
     h2.innerHTML += `${section} Projects`;
     h2.className = "content-title";
-    text_div.appendChild(h2);
+    textDiv.appendChild(h2);
 
     // Section Paragraph //
     let p = document.createElement("p");
     p.innerHTML += "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum metus faucibus lectus pharetra dapibus. Suspendisse potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget lacinia ex. Phasellus imperdiet porta orci eget mollis. Sed convallis sollicitudin mauris ac tincidunt. Donec bibendum, nulla eget bibendum consectetur, sem nisi aliquam leo, ut pulvinar quam nunc eu augue. Pellentesque maximus imperdiet elit a pharetra. Duis lectus mi, aliquam in mi quis, aliquam porttitor lacus. Morbi a tincidunt felis. Sed leo nunc, pharetra et elementum non, faucibus vitae elit. Integer nec libero venenatis libero ultricies molestie semper in tellus. Sed congue et odio sed euismod.";
     p.className = "content-text";
-    text_div.appendChild(p);
+    textDiv.appendChild(p);
 
     let para = document.createElement("p");
     para.innerHTML += "Aliquam a convallis justo. Vivamus venenatis, erat eget pulvinar gravida, ipsum lacus aliquet velit, vel luctus diam ipsum a diam. Cras eu tincidunt arcu, vitae rhoncus purus. Vestibulum fermentum consectetur porttitor. Suspendisse imperdiet porttitor tortor, eget elementum tortor mollis non.";
     para.className = "content-text-two";
-    text_div.appendChild(para);
+    textDiv.appendChild(para);
 
     let up = document.createElement("a")
     up.href = "#top"
     up.className = "fas fa-angle-up fa-2x"
-    text_div.appendChild(up);
+    textDiv.appendChild(up);
 
 
     // Image Container
     let image_container = document.createElement("div");
     image_container.className = "image_container";
-    section_div.appendChild(image_container);
+    sectionDiv.appendChild(image_container);
 
     let figure = document.createElement("figure");
     figure.className = `${section}_image`;
@@ -161,7 +169,7 @@ function isOutOfViewport (elem) {
 
 };
 
-//! -------- Add Active Class if in Viewport -------- //
+//! -------- Add Active Class if in Viewport & Link to Nav -------- //
 
 const each_sections = document.querySelectorAll('.section');
 
@@ -170,11 +178,23 @@ function logViewport () {
     const isOut = isOutOfViewport(each_section);
     if (isOut.all) {
       each_section.classList.add("your-active-class")
+      const nav = document.querySelector(`#nav-${each_section.id}`)
+      nav.classList.add("your-active-nav-class")
+
     } else {
       each_section.classList.remove("your-active-class")
+      const nav = document.querySelector(`#nav-${each_section.id}`)
+      nav.classList.remove("your-active-nav-class")
     }
   };
 }
 
 logViewport();
 window.addEventListener('scroll', logViewport, false);
+
+
+
+
+
+
+
