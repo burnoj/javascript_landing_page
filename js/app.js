@@ -43,13 +43,6 @@ function displayContent() {
 
   const all_sections = document.querySelector('.sections');
 
-  // function generateElements(tagName, elemClass, targetToAppend){
-  //   let newElem = document.createElement(tagName);
-  //   newElem.className = elemClass;
-  //   targetToAppend.appendChild(newElem);
-  // }
-  // generateElements("div", "text-container", section_div );
-
   for (let section of sections) {
 
     // Section Container //
@@ -162,9 +155,10 @@ function isOutOfViewport (elem) {
 
   // Check if it's out of the viewport on each side
   const out = {};
-  out.top = bounding.top < 0;
+  out.top = bounding.top < 0 ;
   out.bottom = bounding.bottom > 0;
   out.all = out.top && out.bottom;
+  out.part = out.top || out.bottom
   return out;
 
 };
